@@ -96,9 +96,10 @@ class ServiceProvider extends Base {
 				$config->get('laravel-doctrine::doctrine.metadata'),
 				$devMode,
 				$config->get('laravel-doctrine::doctrine.proxy_classes.directory'),
-				$cache
+				$cache,
+				false
 			);
-
+			
 			$doctrine_config->setAutoGenerateProxyClasses(
 				$config->get('laravel-doctrine::doctrine.proxy_classes.auto_generate')
 			);
