@@ -98,5 +98,7 @@ return array(
    'sqlLogger' => null,
    
    // For any additional annotation namespaces to be used, register them here
-   'autoloadAnnotationNamespaces' => array()
+   'autoloadAnnotationNamespaces' => array(),
+   // Configuration for enabling doctrine extensions. Must be installed seperately. Defaults to false.
+   'enableDoctrineExtensions' => false
 );
