@@ -96,4 +96,7 @@ return array(
 	|--------------------------------------------------------------------------
 	*/
    'sqlLogger' => null,
+   
+   // For any additional annotation namespaces to be used, register them here
+   'autoloadAnnotationNamespaces' => array()
 );
