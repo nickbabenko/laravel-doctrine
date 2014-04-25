@@ -165,6 +165,12 @@ class ServiceProvider extends Base {
     $this->app->singleton('doctrine.connection', function ($app) {
       return $app['doctrine']->getConnection();
     });
+    
+    		$config 		= $this->app['config'];
+    		$namespaceConfig 	= $config->get('laravel-doctrine::doctrine.autoloadAnnotationNamespaces');
+    	
+    		foreach($namespaceConfig as $namespace => $path)
+	    		\Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace($namespace, $path);
 
 		//
 		// Commands
