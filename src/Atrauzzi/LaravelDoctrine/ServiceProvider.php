@@ -132,6 +132,7 @@ class ServiceProvider extends Base {
 			        $doctrine_config->addCustomNumericFunction('ATAN2', 'DoctrineExtensions\Query\Mysql\Atan2');
 			        $doctrine_config->addCustomNumericFunction('DEGREES', 'DoctrineExtensions\Query\Mysql\Degrees');
 			        $doctrine_config->addCustomNumericFunction('RADIANS', 'DoctrineExtensions\Query\Mysql\Radians');
+			        $doctrine_config->addCustomNumericFunction('PI', 'DoctrineExtensions\Query\Mysql\Pi');
 			}
 
 			// Obtain an EntityManager from Doctrine.
