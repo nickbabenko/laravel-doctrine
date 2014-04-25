@@ -119,6 +119,20 @@ class ServiceProvider extends Base {
 			if (isset($connection['prefix']) && !empty($connection['prefix'])) {
 				$evm->addEventListener(Events::loadClassMetadata, new Listener\Metadata\TablePrefix($connection['prefix']));
 			}
+			
+			if($config->get('laravel-doctrine::doctrine.enableDoctrineExtensions'))
+			{
+				$doctrine_config->addCustomNumericFunction('SIN', 'DoctrineExtensions\Query\Mysql\Sin');
+			        $doctrine_config->addCustomNumericFunction('ASIN', 'DoctrineExtensions\Query\Mysql\Asin');
+			        $doctrine_config->addCustomNumericFunction('COS', 'DoctrineExtensions\Query\Mysql\Cos');
+			        $doctrine_config->addCustomNumericFunction('ACOS', 'DoctrineExtensions\Query\Mysql\Acos');
+			        $doctrine_config->addCustomNumericFunction('COT', 'DoctrineExtensions\Query\Mysql\Cot');
+			        $doctrine_config->addCustomNumericFunction('TAN', 'DoctrineExtensions\Query\Mysql\Tan');
+			        $doctrine_config->addCustomNumericFunction('ATAN', 'DoctrineExtensions\Query\Mysql\Atan');
+			        $doctrine_config->addCustomNumericFunction('ATAN2', 'DoctrineExtensions\Query\Mysql\Atan2');
+			        $doctrine_config->addCustomNumericFunction('DEGREES', 'DoctrineExtensions\Query\Mysql\Degrees');
+			        $doctrine_config->addCustomNumericFunction('RADIANS', 'DoctrineExtensions\Query\Mysql\Radians');
+			}
 
 			// Obtain an EntityManager from Doctrine.
 			return EntityManager::create($connection, $doctrine_config, $evm);
