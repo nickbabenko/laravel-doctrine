@@ -137,6 +137,7 @@ class ServiceProvider extends Base {
 			        $doctrine_config->addCustomDateTimeFunction('YEAR', 'DoctrineExtensions\Query\Mysql\Year');
 			        $doctrine_config->addCustomDateTimeFunction('DAY', 'DoctrineExtensions\Query\Mysql\Day');
 			        $doctrine_config->addCustomDateTimeFunction('DATE', 'DoctrineExtensions\Query\Mysql\Date');
+			        $doctrine_config->addCustomStringFunction('FIELD', 'DoctrineExtensions\Query\Mysql\Field');
 			}
 
 			// Obtain an EntityManager from Doctrine.
