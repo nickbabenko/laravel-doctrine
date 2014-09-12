@@ -42,6 +42,8 @@ class ServiceProvider extends Base {
 			$config = $app['config'];
 			$connection = $config->get('laravel-doctrine::doctrine.connection');
 			$devMode = $config->get('app.debug');
+			
+			$connection->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
 
 			$cache = null; // Default, let Doctrine decide.
 
