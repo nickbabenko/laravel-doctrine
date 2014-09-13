@@ -43,8 +43,6 @@ class ServiceProvider extends Base {
 			$connection = $config->get('laravel-doctrine::doctrine.connection');
 			$devMode = $config->get('app.debug');
 			
-			$connection->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
-
 			$cache = null; // Default, let Doctrine decide.
 
 			if(!$devMode) {
@@ -185,7 +183,9 @@ class ServiceProvider extends Base {
 
     // Registering the doctrine connection to the IoC container.
     $this->app->singleton('doctrine.connection', function ($app) {
-      return $app['doctrine']->getConnection();
+      $connection = $app['doctrine']->getConnection();
+  	$connection->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
+  	return $connection;
     });
     
     		$config 		= $this->app['config'];
